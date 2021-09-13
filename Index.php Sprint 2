@@ -1,0 +1,78 @@
+<?php
+$con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
+if(mysqli_connect_errno()){
+    echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
+else{
+    echo "connected to database";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Canteen </title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="style.css">
+</head>
+<body>
+<header>
+    <h1> Wellington girls' college canteen </h1>
+    <nav>
+        <ul>
+            <li> <a href='index.php'> Home </a></li>
+            <li> <a href='food.php'> Food Menu </a></li>
+            <li> <a href='drinks.php'> Drinks Menu </a></li>
+            <li> <a href='specials.php'> Specials </a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+<main>
+
+    <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
+        <select id='drink' name='drink'>
+            <!--options-->
+
+        </select>
+        <input type='submit' name='drinks_button' value='Show me the drink information'>
+    </form>
+
+    <form name='food_form' id='food_form' method = 'get' action ='Food.php'>
+        <select id='food' name='food'>
+            <!--options-->
+
+        </select>
+        <input type='submit' name='food_button' value='Show me the food information'>
+    </form>
+
+    <form name='specials_form' id='specials_form' method = 'get' action ='Specials.php'>
+        <select id='specials' name='specials'>
+            <!--options-->
+
+        </select>
+        <input type='submit' name='specials_button' value='Show me the specials information'>
+    </form>
+
+<h2> About </h2>
+    <p> Wellington girls college canteen is set in the
+        heart of the school, we provide a wide range of
+        food and drink options for students. We cover a
+        range of prices to cater to each student. As
+        well as dietary requirements with dairy and gluten
+        free options. The canteen is all about providing a
+        safe and yummy option of food and drinks for students.
+        We are option each lunch time. Our school values
+        are of the up most importance which we try to implement
+        into our canteen each day. </p>
+</main>
+<footer>
+
+    <h3> WGC CANTEEN </h3>
+
+    <div class="footer" >
+        Contact infomation: <br> Email: canteen@wgc.school.nz <br>
+        Address: 18 Pipitea Street, Thorndon, <br>
+        Wellington 6011, New Zealand. <br>
+        PO Box 12471, Wellington North 6144. <br>
+        created by Gen ©2021 </div> </footer>
+</html>
