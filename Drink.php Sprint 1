@@ -1,1 +1,68 @@
+<?php
+$con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
+if(mysqli_connect_errno()){
+    echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
+else{
+    echo "connected to database";
+}
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Canteen </title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="style.css">
+</head>
+<body>
+<header>
+    <h1> Wellington girls' college canteen </h1>
+    <nav>
+        <ul>
+            <li> <a href='index.php'> Home </a></li>
+            <li> <a href='food.php'> Food Menu </a></li>
+            <li> <a href='drinks.php'> Drinks Menu </a></li>
+            <li> <a href='specials.php'> Specials </a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+<main>
+   <table border="1">
+    <?php
+    /* Drinks query */
+    /* SELECT Drinktype, Dcost FROM Drink */
+
+    $featured_drinks_query = "SELECT Drinktype, Dcost FROM Drink";
+    $featured_drinks_result = mysqli_query($con, $featured_drinks_query);
+    if (mysqli_num_rows($featured_drinks_result)>0) {
+    echo "<thead>";
+    echo "<tr>";
+        echo "<th>Drink</th>";
+        echo "<th>Cost</th>";
+        echo "</tr>";
+    echo "</thead>";
+
+    }
+    while($row=mysqli_fetch_assoc($featured_drinks_result)) {
+    echo "<tr>";
+        echo "<td>".$row['Drinktype']."</td>";
+        echo "<td>".$row['Dcost']."</td>";
+        echo "</tr>";
+    }
+?>
+   </table> </main>
+<footer>
+
+    <h3> WGC CANTEEN </h3>
+
+    <div class="footer" >
+        Contact infomation: <br> Email: canteen@wgc.school.nz <br>
+        Address: 18 Pipitea Street, Thorndon, <br>
+        Wellington 6011, New Zealand. <br>
+        PO Box 12471, Wellington North 6144. <br>
+        created by Gen ©2021 </div> </footer>
+</html>
 
