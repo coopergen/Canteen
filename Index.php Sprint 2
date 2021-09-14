@@ -5,6 +5,16 @@ if(mysqli_connect_errno()){
 else{
     echo "connected to database";
 }
+
+$all_drinks_query = "SELECT Drinktype, Dcost FROM Drink";
+$all_drinks_result = mysqli_query($con, $all_drinks_query);
+
+$all_food_query = "SELECT Foodtype, Fcost FROM food ";
+$all_food_result = mysqli_query($con, $all_food_query);
+
+$all_specials_query = "SELECT Day, Foodtype, Drinktype, Price FROM Specials";
+$all_specials_result = mysqli_query($con, $all_specials_query);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +42,14 @@ else{
     <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
         <select id='drink' name='drink'>
             <!--options-->
+            <?php
+            while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)){
+                echo "<option value = '". $all_drinks_record['DrinkID'] . "'>";
+                echo $all_drinks_record['Drinktype'];
+                echo "</option>";
+            }
+
+            ?>
 
         </select>
         <input type='submit' name='drinks_button' value='Show me the drink information'>
@@ -40,17 +58,33 @@ else{
     <form name='food_form' id='food_form' method = 'get' action ='Food.php'>
         <select id='food' name='food'>
             <!--options-->
+            <?php
+            while($all_food_record = mysqli_fetch_assoc($all_food_result)){
+                echo "<option value = '". $all_food_record['FoodID'] . "'>";
+                echo $all_food_record['Foodtype'];
+                echo "</option>";
+            }
+
+            ?>
 
         </select>
         <input type='submit' name='food_button' value='Show me the food information'>
     </form>
 
     <form name='specials_form' id='specials_form' method = 'get' action ='Specials.php'>
-        <select id='specials' name='specials'>
+        <select id='special' name='special'>
             <!--options-->
+            <?php
+            while($all_specials_record = mysqli_fetch_assoc($all_specials_result)){
+                echo "<option value = '". $all_specials_record['SpecialsID'] . "'>";
+                echo $all_specials_record['Day'];
+                echo "</option>";
+            }
+
+            ?>
 
         </select>
-        <input type='submit' name='specials_button' value='Show me the specials information'>
+        <input type='submit' name='Specials_button' value='Show me the specials information'>
     </form>
 
 <h2> About </h2>
