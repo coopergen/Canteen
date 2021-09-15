@@ -1,1 +1,76 @@
+<?php
+$con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
+if(mysqli_connect_errno()){
+    echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
+else{
+    echo "connected to database";
+}
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Canteen </title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="style.css">
+</head>
+<body>
+<header>
+    <h1> Wellington girls' <br> college canteen </h1>
+    <nav>
+        <ul>
+            <li> <a href='index.php'> Home </a></li>
+            <li> <a href='food.php'> Food Menu </a></li>
+            <li> <a href='drinks.php'> Drinks Menu </a></li>
+            <li> <a href='specials.php'> Specials </a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+<main>
+
+    <table border="1">
+        <?php
+        /* Specials query */
+        /* SELECT Day, Foodtype, Drinktype, Price FROM Specials */
+
+        $featured_specials_query = "SELECT Day, Foodtype, Drinktype, Price FROM Specials";
+        $featured_specials_result = mysqli_query($con, $featured_specials_query);
+        if (mysqli_num_rows($featured_specials_result)>0) {
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>Day</th>";
+            echo "<th>Food</th>";
+            echo "<th>Drink</th>";
+            echo "<th>Price</th>";
+            echo "</tr>";
+            echo "</thead>";
+
+        }
+        while($row=mysqli_fetch_assoc($featured_specials_result)) {
+            echo "<tr>";
+            echo "<td>".$row['Day']."</td>";
+            echo "<td>".$row['Foodtype']."</td>";
+            echo "<td>".$row['Drinktype']."</td>";
+            echo "<td>".$row['Price']."</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+</main>
+<footer>
+
+    <h2> Wellington girls canteen </h2>
+
+    <div class="footer" >
+        <li> <a href='index.php'> Home </a></li>
+        <li> <a href='food.php'> Food Menu </a></li>
+        <li> <a href='drinks.php'> Drinks Menu </a></li>
+        <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
+        <p> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
+            Address: 18 Pipitea Street, Thorndon, <br>
+            Wellington 6011, New Zealand. <br>
+            PO Box 12471, Wellington North 6144. <br>
+            created by Gen ©2021 </p> </div> </footer>
+</html>
