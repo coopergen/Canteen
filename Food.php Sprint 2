@@ -30,7 +30,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
 </head>
 <body>
 <header>
-    <h1> Wellington girls' college canteen </h1>
+    <h1> Wellington girls' <br> college canteen </h1>
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -43,7 +43,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
 </body>
 <main>
 
-    <h2> Search a Drink </h2>
+    <h2> Search a Food </h2>
 
     <form action="" method="post">
         <input type="text" name='search'>
@@ -55,11 +55,22 @@ $all_food_result = mysqli_query($con, $all_food_query);
     if(isset($_POST['search'])) {
         $search = $_POST['search'];
 
-        $query1 = "SELECT * FROM drink WHERE Item LIKE '%$search%'";
+        $query1 = "SELECT * FROM food WHERE Foodtype LIKE '%$search%'";
         $query = mysqli_query($con, $query1);
+        $count = mysqli_num_rows($query);
 
+        if($count == 0){
+            echo "There was no search results!";
+
+        }else{
+
+            while ($row = mysqli_fetch_array($query)) {
+
+                echo $row ['Foodtype'];
+                echo "<br>";
+            }
+        }
     }
-
     ?>
 
     <h2> Food information </h2>
@@ -115,13 +126,16 @@ $all_food_result = mysqli_query($con, $all_food_query);
 </main>
 <footer>
 
-    <h3> WGC CANTEEN </h3>
+    <h2> Wellington girls canteen </h2>
 
     <div class="footer" >
-        Contact infomation: <br> Email: canteen@wgc.school.nz <br>
-        Address: 18 Pipitea Street, Thorndon, <br>
-        Wellington 6011, New Zealand. <br>
-        PO Box 12471, Wellington North 6144. <br>
-        created by Gen ©2021 </div> </footer>
+        <li> <a href='index.php'> Home </a></li>
+        <li> <a href='food.php'> Food Menu </a></li>
+        <li> <a href='drinks.php'> Drinks Menu </a></li>
+        <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
+        <p> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
+            Address: 18 Pipitea Street, Thorndon, <br>
+            Wellington 6011, New Zealand. <br>
+            PO Box 12471, Wellington North 6144. <br>
+            created by Gen ©2021 </p> </div> </footer>
 </html>
-
