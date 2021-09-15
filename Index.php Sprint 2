@@ -6,13 +6,13 @@ else{
     echo "connected to database";
 }
 
-$all_drinks_query = "SELECT Drinktype, Dcost FROM Drink";
+$all_drinks_query = "SELECT DrinkID, Drinktype FROM drink";
 $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
-$all_food_query = "SELECT Foodtype, Fcost FROM food ";
+$all_food_query = "SELECT FoodID, Foodtype FROM food ";
 $all_food_result = mysqli_query($con, $all_food_query);
 
-$all_specials_query = "SELECT Day, Foodtype, Drinktype, Price FROM Specials";
+$all_specials_query = "SELECT SpecialsID, Day, FROM specials";
 $all_specials_result = mysqli_query($con, $all_specials_query);
 
 ?>
@@ -40,7 +40,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 <main>
 
     <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
-        <select id='drink' name='drink'>
+        <select id ='drink' name ='drink'>
             <!--options-->
             <?php
             while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)){
@@ -48,7 +48,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                 echo $all_drinks_record['Drinktype'];
                 echo "</option>";
             }
-
+            $DrinkID = isset($_GET['DrinkID']) ? $_GET['DrinkID'] : '';
             ?>
 
         </select>
@@ -69,22 +69,6 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         </select>
         <input type='submit' name='food_button' value='Show me the food information'>
-    </form>
-
-    <form name='specials_form' id='specials_form' method = 'get' action ='Specials.php'>
-        <select id='special' name='special'>
-            <!--options-->
-            <?php
-            while($all_specials_record = mysqli_fetch_assoc($all_specials_result)){
-                echo "<option value = '". $all_specials_record['SpecialsID'] . "'>";
-                echo $all_specials_record['Day'];
-                echo "</option>";
-            }
-
-            ?>
-
-        </select>
-        <input type='submit' name='Specials_button' value='Show me the specials information'>
     </form>
 
 <h2> About </h2>
