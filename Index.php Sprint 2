@@ -26,7 +26,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 </head>
 <body>
 <header>
-    <h1> Wellington girls' college canteen </h1>
+    <h1> Wellington girls' <br> college canteen </h1>
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -55,7 +55,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
         <input type='submit' name='drinks_button' value='Show me the drink information'>
     </form>
 
-    <form name='food_form' id='food_form' method = 'get' action ='Food.php'>
+    <form  name='food_form' id='food_form' method = 'get' action ='Food.php'>
         <select id='food' name='food'>
             <!--options-->
             <?php
@@ -71,7 +71,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
         <input type='submit' name='food_button' value='Show me the food information'>
     </form>
 
-<h2> About </h2>
+    <div class="relative"> <div class="textbox"> <h2> About </h2> </div> </div>
     <p> Wellington girls college canteen is set in the
         heart of the school, we provide a wide range of
         food and drink options for students. We cover a
@@ -85,12 +85,17 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 </main>
 <footer>
 
-    <h3> WGC CANTEEN </h3>
+    <h2> Wellington girls canteen </h2>
 
     <div class="footer" >
-        Contact infomation: <br> Email: canteen@wgc.school.nz <br>
+                <li> <a href='index.php'> Home </a></li>
+                <li> <a href='food.php'> Food Menu </a></li>
+                <li> <a href='drinks.php'> Drinks Menu </a></li>
+                <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
+        <p> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
         Address: 18 Pipitea Street, Thorndon, <br>
         Wellington 6011, New Zealand. <br>
         PO Box 12471, Wellington North 6144. <br>
-        created by Gen ©2021 </div> </footer>
+        created by Gen ©2021 </p> </div> </footer>
 </html>
+
