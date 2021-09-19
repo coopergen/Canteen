@@ -19,12 +19,6 @@ p {
     font-family: 'Libre Baskerville', serif;
     color: #342B21;
     font-size: 24px;
-    height: 210px;
-    width: 1200px;
-    overflow: auto;
-    background-color: #559793;
-    padding: 50px;
-    margin-bottom: 20px;
 }
 
 ul {
@@ -55,12 +49,32 @@ form {
 
 .textbox {
     height: 70px;
-    width: 1000px;
+    width: 100px;
     overflow: auto;
     background-color: #559793;
-    margin: 20px;
+    margin: 50px;
     margin-left:auto;
     margin-right:auto
+}
+
+.textbox2 {
+    height: 210px;
+    width: 1200px;
+    overflow: auto;
+    background-color: #559793;
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 table {
@@ -95,3 +109,7 @@ footer {
     color: #342B21;
 }
 
+.contact {
+    font-size: 18px;
+    font-family: 'Libre Baskerville', serif;
+}
