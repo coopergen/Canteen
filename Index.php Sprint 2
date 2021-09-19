@@ -72,16 +72,16 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
     </form>
 
     <div class="relative"> <div class="textbox"> <h2> About </h2> </div> </div>
-    <p> Wellington girls college canteen is set in the
-        heart of the school, we provide a wide range of
-        food and drink options for students. We cover a
-        range of prices to cater to each student. As
-        well as dietary requirements with dairy and gluten
-        free options. The canteen is all about providing a
-        safe and yummy option of food and drinks for students.
-        We are option each lunch time. Our school values
-        are of the up most importance which we try to implement
-        into our canteen each day. </p>
+    <div class="textbox2"> <p> Wellington girls college canteen is set in the
+            heart of the school, we provide a wide range of
+            food and drink options for students. We cover a
+            range of prices to cater to each student. As
+            well as dietary requirements with dairy and gluten
+            free options. The canteen is all about providing a
+            safe and yummy option of food and drinks for students.
+            We are option each lunch time. Our school values
+            are of the up most importance which we try to implement
+            into our canteen each day. <p></p> </div> </div>
 </main>
 <footer>
 
@@ -92,10 +92,9 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                 <li> <a href='food.php'> Food Menu </a></li>
                 <li> <a href='drinks.php'> Drinks Menu </a></li>
                 <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
-        <p> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
+        <div class="contact"> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
         Address: 18 Pipitea Street, Thorndon, <br>
         Wellington 6011, New Zealand. <br>
         PO Box 12471, Wellington North 6144. <br>
-        created by Gen ©2021 </p> </div> </footer>
+            created by Gen ©2021 </div> </div> </footer>
 </html>
-
