@@ -74,16 +74,16 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
     }
     ?>
 
-
-    <h2> Drinks information </h2>
+    <div class="row">
+        <div class="column"> <h2> Drinks information </h2>
 
     <?php
 
         echo "<p> Drink Name: " . $this_drink_record['Drinktype'] . "<br>";
         echo "<p> Cost: " . $this_drink_record['Dcost'] . "<br>";
-        ?>
+    ?> </div>
 
-    <h2> Select another drink </h2>
+            <div class="column">  <h2> Select another drink </h2>
 
     <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
         <select id ='drink' name ='drink'>
@@ -99,7 +99,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
         </select>
         <input type='submit' name='drinks_button' value='Show me the drink information'>
-    </form>
+    </form> </div>
 
    <table border="1">
     <?php
@@ -135,9 +135,10 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
         <li> <a href='food.php'> Food Menu </a></li>
         <li> <a href='drinks.php'> Drinks Menu </a></li>
         <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
-        <p> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
+        <div class="contact"> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
             Address: 18 Pipitea Street, Thorndon, <br>
             Wellington 6011, New Zealand. <br>
             PO Box 12471, Wellington North 6144. <br>
-            created by Gen ©2021 </p> </div> </footer>
+            created by Gen ©2021 </div> </div> </footer>
 </html>
+
