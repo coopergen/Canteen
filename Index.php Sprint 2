@@ -38,8 +38,8 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 </header>
 </body>
 <main>
-
-    <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
+    <div class="row">
+        <div class="column"> <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
         <select id ='drink' name ='drink'>
             <!--options-->
             <?php
@@ -53,8 +53,8 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         </select>
         <input type='submit' name='drinks_button' value='Show me the drink information'>
-    </form>
-
+            </form> </div>
+        <div class="column">
     <form  name='food_form' id='food_form' method = 'get' action ='Food.php'>
         <select id='food' name='food'>
             <!--options-->
@@ -69,7 +69,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 
         </select>
         <input type='submit' name='food_button' value='Show me the food information'>
-    </form>
+    </form> </div>
 
     <div class="relative"> <div class="textbox"> <h2> About </h2> </div> </div>
     <div class="textbox2"> <p> Wellington girls college canteen is set in the
