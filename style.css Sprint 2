@@ -49,17 +49,17 @@ form {
 
 .textbox {
     height: 70px;
-    width: 100px;
+    width: 250px;
     overflow: auto;
     background-color: #559793;
-    margin: 50px;
+    margin: 100px;
     margin-left:auto;
     margin-right:auto
 }
 
 .textbox2 {
-    height: 210px;
-    width: 1200px;
+    height: 200px;
+    width: 1000px;
     overflow: auto;
     background-color: #559793;
     padding: 50px;
@@ -113,3 +113,4 @@ footer {
     font-size: 18px;
     font-family: 'Libre Baskerville', serif;
 }
+
