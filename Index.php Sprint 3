@@ -1,1 +1,108 @@
+<?php
+$con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
+if(mysqli_connect_errno()){
+    echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
+else{
+    echo "connected to database";
+}
+
+$all_drinks_query = "SELECT DrinkID, Drinktype FROM drink";
+$all_drinks_result = mysqli_query($con, $all_drinks_query);
+
+$all_food_query = "SELECT FoodID, Foodtype FROM food ";
+$all_food_result = mysqli_query($con, $all_food_query);
+
+$all_specials_query = "SELECT SpecialsID, Day, FROM specials";
+$all_specials_result = mysqli_query($con, $all_specials_query);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Canteen </title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="style.css">
+</head>
+<body>
+<header>
+    <h1> Wellington girls' <br> college canteen </h1>
+    <nav>
+        <ul>
+            <li> <a href='index.php'> Home </a></li>
+            <li> <a href='food.php'> Food Menu </a></li>
+            <li> <a href='drinks.php'> Drinks Menu </a></li>
+            <li> <a href='specials.php'> Specials </a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+<main>
+    <div class="row">
+        <div class="column"> <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
+                <select id ='drink' name ='drink'>
+                    <!--options-->
+                    <?php
+                    while($all_drinks_record = mysqli_fetch_assoc($all_drinks_result)){
+                        echo "<option value = '". $all_drinks_record['DrinkID'] . "'>";
+                        echo $all_drinks_record['Drinktype'];
+                        echo "</option>";
+                    }
+                    $DrinkID = isset($_GET['DrinkID']) ? $_GET['DrinkID'] : '';
+                    ?>
+
+                </select>
+                <input type='submit' name='drinks_button' value='Show me the drink information'>
+            </form> </div>
+        <div class="column">
+            <form  name='food_form' id='food_form' method = 'get' action ='Food.php'>
+                <select id='food' name='food'>
+                    <!--options-->
+                    <?php
+                    while($all_food_record = mysqli_fetch_assoc($all_food_result)){
+                        echo "<option value = '". $all_food_record['FoodID'] . "'>";
+                        echo $all_food_record['Foodtype'];
+                        echo "</option>";
+                    }
+
+                    ?>
+
+                </select>
+                <input type='submit' name='food_button' value='Show me the food information'>
+            </form> </div>
+
+        <div class="relative"> <div class="textbox"> <h2> About </h2> </div> </div>
+        <div class="textbox2"> <p> Wellington girls college canteen is set in the
+                heart of the school, we provide a wide range of
+                food and drink options for students. We cover a
+                range of prices to cater to each student. As
+                well as dietary requirements with dairy and gluten
+                free options. The canteen is all about providing a
+                safe and yummy option of food and drinks for students.
+                We are option each lunch time. Our school values
+                are of the up most importance which we try to implement
+                into our canteen each day. <p></p> </div> </div>
+</main>
+<footer>
+
+    <h2> Wellington girls canteen </h2>
+
+    <div class="footer" > <div class="row">
+            <div class="columnf left">
+                <li> <a href='index.php'> Home </a></li>
+                <li> <a href='food.php'> Food Menu </a></li>
+                <li> <a href='drinks.php'> Drinks Menu </a></li>
+                <li> <a href='specials.php'> Specials </a></li> <br> <br> <br> <br> <br> <br>
+                <br> <br> <br>
+                created by Gen ©2021
+            </div>
+
+            <div class="columnf middle"> <img src='WGC footer LOGO.png'  width="110"/> </div>
+
+            <div class="columnf right">
+                <div class="contact"> <br> <strong> Contact information: </strong> <strong> Email: </strong> wgc.school.nz
+                    <strong> Address: </strong> 18 Pipitea Street, Thorndon,
+                    Wellington 6011, New Zealand.
+                    PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
+</html>
 
