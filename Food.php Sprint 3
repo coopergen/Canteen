@@ -1,1 +1,156 @@
+<?php
+$con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
+if(mysqli_connect_errno()){
+    echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
+else{
+    echo "connected to database";
+}
+
+if(isset($_GET['food'])){
+    $id = $_GET['food'];
+}else{
+    $id = 1;
+}
+
+$this_food_query = "SELECT Foodtype, Fcost FROM food WHERE FoodID = '"  .  $id  . "'";
+$this_food_result = mysqli_query($con, $this_food_query);
+$this_food_record = mysqli_fetch_assoc($this_food_result);
+
+$all_food_query = "SELECT FoodID, Foodtype FROM food ";
+$all_food_result = mysqli_query($con, $all_food_query);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Canteen </title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="style.css">
+</head>
+<body>
+<header>
+    <h1> Wellington girls' <br> college canteen </h1>
+    <nav>
+        <ul>
+            <li> <a href='index.php'> Home </a></li>
+            <li> <a href='food.php'> Food Menu </a></li>
+            <li> <a href='drinks.php'> Drinks Menu </a></li>
+            <li> <a href='specials.php'> Specials </a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+<main>
+
+    <h2> Search a Food </h2>
+
+    <form action="" method="post">
+        <input type="text" name='search'>
+        <input type="submit" name="submit" value="Search">
+    </form>
+
+    <?php
+
+    if(isset($_POST['search'])) {
+        $search = $_POST['search'];
+
+        $query1 = "SELECT * FROM food WHERE Foodtype LIKE '%$search%'";
+        $query = mysqli_query($con, $query1);
+        $count = mysqli_num_rows($query);
+
+        if($count == 0){
+            echo "There was no search results!";
+
+        }else{
+
+            while ($row = mysqli_fetch_array($query)) {
+
+                echo $row ['Foodtype'];
+                echo "<br>";
+            }
+        }
+    }
+    ?>
+
+    <div class="row">
+        <div class="column"> <h2> Food information </h2>
+
+            <?php
+
+            echo "<p> Food Name: " . $this_food_record['Foodtype'] . "<br>";
+            echo "<p> Cost: " . $this_food_record['Fcost'] . "<br>";
+            ?>  </div>
+        <div class="column"> <h2> Select another food </h2>
+
+            <form name='food_form' id='food_form' method = 'get' action ='Food.php'>
+                <select id='food' name='food'>
+                    <!--options-->
+                    <?php
+                    while($all_food_record = mysqli_fetch_assoc($all_food_result)){
+                        echo "<option value = '". $all_food_record['FoodID'] . "'>";
+                        echo $all_food_record['Foodtype'];
+                        echo "</option>";
+                    }
+
+                    ?>
+
+                </select>
+                <input type='submit' name='food_button' value='Show me the food information'>
+            </form> </div>
+    </div>
+
+    <table>
+        <tr>
+            <th><h2>Food Menu</h2></th>
+        </tr>
+    </table>
+
+    <table border="1">
+        <?php
+        /* Food query */
+        /* SELECT Foodtype, Fcost FROM Food */
+
+        $featured_foods_query = "SELECT Foodtype, Fcost FROM Food";
+        $featured_foods_result = mysqli_query($con, $featured_foods_query);
+        if (mysqli_num_rows($featured_foods_result)>0) {
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>Food</th>";
+            echo "<th>Cost</th>";
+            echo "</tr>";
+            echo "</thead>";
+
+        }
+        while($row=mysqli_fetch_assoc($featured_foods_result)) {
+            echo "<tr>";
+            echo "<td>".$row['Foodtype']."</td>";
+            echo "<td>".$row['Fcost']."</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+</main>
+<footer>
+
+    <h2> Wellington girls canteen </h2>
+
+    <div class="footer" > <div class="row">
+            <div class="columnf left">
+                <li> <a href='index.php'> Home </a></li>
+                <li> <a href='food.php'> Food Menu </a></li>
+                <li> <a href='drinks.php'> Drinks Menu </a></li>
+                <li> <a href='specials.php'> Specials </a></li> <br> <br> <br> <br> <br> <br>
+                <br> <br> <br>
+                created by Gen ©2021
+            </div>
+
+            <div class="columnf middle"> <img src='WGC footer LOGO.png'  width="110"/> </div>
+
+            <div class="columnf right">
+                <div class="contact"> <br> <strong> Contact information: </strong> <strong> Email: </strong> wgc.school.nz
+                    <strong> Address: </strong> 18 Pipitea Street, Thorndon,
+                    Wellington 6011, New Zealand.
+                    PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
+</html>
 
