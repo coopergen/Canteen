@@ -1,1 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    color: #342B21;
+}
+
+img {
+    align-content: center;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    color: #342B21;
+}
+
+p {
+    font-family: 'Libre Baskerville', serif;
+    color: #342B21;
+    font-size: 24px;
+}
+
+ul {
+    background-color: #559793;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li, a {
+    color: #342B21;
+    display: block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px;
+    padding: 12px 26px;
+    text-align: center;
+    text-decoration: none;
+}
+
+form {
+    font-size: 20px;
+    font-family: 'Merriweather', serif;
+}
+
+.textbox {
+    height: 70px;
+    width: 250px;
+    overflow: auto;
+    background-color: #559793;
+    margin-top: 300px;
+    margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.textbox2 {
+    height: 200px;
+    width: 1000px;
+    overflow: auto;
+    background-color: #559793;
+    padding: 50px;
+    margin-bottom: 200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.columnf {
+    float: left;
+}
+
+.columnh {
+    float: left;
+}
+
+.lefth {
+    width: 30%;
+}
+
+.righth {
+    width: 70%;
+}
+
+.left {
+    width: 60%;
+}
+
+middle {
+    width: 20%;
+}
+
+.right {
+    width: 20%;
+}
+
+table {
+    border: 1px solid #342B21;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+tr:hover {background-color: darkgray;}
+
+th {
+    background-colour: #559793;
+    color: #342B21;
+    font-family: 'Libre Baskerville', serif;
+}
+
+footer {
+    background-color: #559793;
+    display:block;
+    clear:both !important;
+    margin: 0px;
+    padding:10px;
+    border:1px solid #e7e2d7;
+    border-bottom-left-radius: .8em;
+    border-bottom-right-radius: .8em;
+    border-top-right-radius: .0em;
+    border-top-left-radius: .0em;
+    color: #342B21;
+}
+
+.contact {
+    font-size: 18px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 
