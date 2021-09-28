@@ -18,7 +18,7 @@ else{
 <body>
 <header>
     <div class="row">
-        <div class="columnh lefth"> <img src='WGC logo.png'  width="300"/> </div>
+        <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  width="450"/> </div>
         <div class="columnh righth"> <h1> Wellington girls' college canteen </h1> </div> </div>
     <nav>
         <ul>
@@ -31,12 +31,13 @@ else{
 </header>
 </body>
 <main>
+    <br>
 
     <table>
         <tr>
-            <th><h2>Specials Menu</h2></th>
+            <th><br><h2> Specials Menu </h2><br></th>
         </tr>
-    </table>
+    </table> <br>
 
     <table border="1">
         <?php
@@ -70,7 +71,7 @@ else{
 </main>
 <footer>
 
-    <h2> Wellington girls canteen </h2>
+    <h2> Wellington girls college canteen </h2>
 
     <div class="footer" > <div class="row">
             <div class="columnf left">
@@ -90,4 +91,3 @@ else{
             Wellington 6011, New Zealand.
             PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
 </html>
-
