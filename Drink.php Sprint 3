@@ -31,7 +31,9 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 </head>
 <body>
 <header>
-    <h1> Wellington girls' <br> college canteen </h1>
+    <div class="row">
+        <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  width="450"/> </div>
+        <div class="columnh righth"> <h1> Wellington girls' college canteen </h1> </div> </div>
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -43,8 +45,6 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 </header>
 </body>
 <main>
-
-    <h2> Search a Drink</h2>
 
     <form action="" method="post">
         <input type="text" name='search'>
@@ -75,7 +75,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
     ?>
 
     <div class="row">
-        <div class="column"> <h2> Drinks information </h2>
+        <div class="column"> <p> Drinks information </p>
 
             <?php
 
@@ -83,7 +83,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
             echo "<p> Cost: " . $this_drink_record['Dcost'] . "<br>";
             ?> </div>
 
-        <div class="column">  <h2> Select another drink </h2>
+        <div class="column">  <p> Select another drink </p>
 
             <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
                 <select id ='drink' name ='drink'>
@@ -103,9 +103,9 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
     <table>
         <tr>
-            <th><h2>Drinks Menu</h2></th>
+            <th><br><h2>Drinks Menu</h2><br></th>
         </tr>
-    </table>
+    </table> <br> <br>
 
         <table border="1">
             <?php
@@ -130,11 +130,11 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
                 echo "</tr>";
             }
             ?>
-        </table>
+        </table> <br>
 </main>
 <footer>
 
-    <h2> Wellington girls canteen </h2>
+    <h2> Wellington girls college canteen </h2>
 
     <div class="footer" > <div class="row">
             <div class="columnf left">
@@ -154,5 +154,4 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
                     Wellington 6011, New Zealand.
                     PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
 </html>
-
 
