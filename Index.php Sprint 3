@@ -26,7 +26,9 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 </head>
 <body>
 <header>
-    <h1> Wellington girls' <br> college canteen </h1>
+    <div class="row">
+        <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  width="450"/> </div>
+        <div class="columnh righth"> <h1> Wellington girls' college canteen </h1> </div> </div>
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -85,7 +87,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 </main>
 <footer>
 
-    <h2> Wellington girls canteen </h2>
+    <h2> Wellington girls college canteen </h2>
 
     <div class="footer" > <div class="row">
             <div class="columnf left">
@@ -105,4 +107,3 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                     Wellington 6011, New Zealand.
                     PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
 </html>
-
