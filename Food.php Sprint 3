@@ -1,4 +1,4 @@
-<?php
+ <?php
 $con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
@@ -30,7 +30,9 @@ $all_food_result = mysqli_query($con, $all_food_query);
 </head>
 <body>
 <header>
-    <h1> Wellington girls' <br> college canteen </h1>
+    <div class="row">
+        <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  width="450"/> </div>
+        <div class="columnh righth"> <h1> Wellington girls' college canteen </h1> </div> </div>
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -42,8 +44,6 @@ $all_food_result = mysqli_query($con, $all_food_query);
 </header>
 </body>
 <main>
-
-    <h2> Search a Food </h2>
 
     <form action="" method="post">
         <input type="text" name='search'>
@@ -74,14 +74,14 @@ $all_food_result = mysqli_query($con, $all_food_query);
     ?>
 
     <div class="row">
-        <div class="column"> <h2> Food information </h2>
+        <div class="column"> <p> Food information </p>
 
             <?php
 
             echo "<p> Food Name: " . $this_food_record['Foodtype'] . "<br>";
             echo "<p> Cost: " . $this_food_record['Fcost'] . "<br>";
             ?>  </div>
-        <div class="column"> <h2> Select another food </h2>
+        <div class="column"> <p> Select another food </p>
 
             <form name='food_form' id='food_form' method = 'get' action ='Food.php'>
                 <select id='food' name='food'>
@@ -102,9 +102,9 @@ $all_food_result = mysqli_query($con, $all_food_query);
 
     <table>
         <tr>
-            <th><h2>Food Menu</h2></th>
+            <th><br><h2>Food Menu</h2><br></th>
         </tr>
-    </table>
+    </table> <br> <br>
 
     <table border="1">
         <?php
@@ -129,11 +129,11 @@ $all_food_result = mysqli_query($con, $all_food_query);
             echo "</tr>";
         }
         ?>
-    </table>
+    </table> <br>
 </main>
 <footer>
 
-    <h2> Wellington girls canteen </h2>
+    <h2> Wellington girls college canteen </h2>
 
     <div class="footer" > <div class="row">
             <div class="columnf left">
@@ -153,4 +153,3 @@ $all_food_result = mysqli_query($con, $all_food_query);
                     Wellington 6011, New Zealand.
                     PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
 </html>
-
