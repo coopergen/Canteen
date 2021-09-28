@@ -16,6 +16,7 @@ h2 {
     font-family: 'Merriweather', serif;
     text-align: center;
     color: #342B21;
+    font-size: 32px;
 }
 
 p {
@@ -52,25 +53,27 @@ form {
 }
 
 .textbox {
-    height: 70px;
+    height: 100px;
     width: 250px;
     overflow: auto;
-    background-color: #559793;
+    background-color: #2B8C8C;
     margin-top: 300px;
     margin-bottom: 20px;
     margin-left:auto;
     margin-right:auto;
+    border-radius: 25px;
 }
 
 .textbox2 {
-    height: 200px;
+    height: 250px;
     width: 1000px;
     overflow: auto;
-    background-color: #559793;
+    background-color: #2B8C8C;
     padding: 50px;
     margin-bottom: 200px;
     margin-left:auto;
     margin-right:auto;
+    border-radius: 25px;
 }
 
 .column {
@@ -93,11 +96,11 @@ form {
 }
 
 .lefth {
-    width: 30%;
+    width: 35%;
 }
 
 .righth {
-    width: 70%;
+    width: 65%;
 }
 
 .left {
@@ -115,6 +118,7 @@ middle {
 table {
     border: 1px solid #342B21;
     width: 100%;
+    background-color: #2B8C8C;
 }
 
 th, td {
@@ -122,10 +126,9 @@ th, td {
     text-align: center;
 }
 
-tr:hover {background-color: darkgray;}
+tr:hover {background-color: #559793;}
 
 th {
-    background-colour: #559793;
     color: #342B21;
     font-family: 'Libre Baskerville', serif;
 }
@@ -148,5 +151,4 @@ footer {
     font-size: 18px;
     font-family: 'Libre Baskerville', serif;
 }
-
 
