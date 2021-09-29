@@ -1,4 +1,5 @@
 <?php
+/* Connection code to the server */
 $con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
@@ -6,32 +7,40 @@ else{
     echo "connected to database";
 }
 
+/* Select another drink */
 if(isset($_GET['drink'])){
     $id = $_GET['drink'];
 }else{
     $id = 1;
 }
 
+/* Query for drink information */
+
 $this_drink_query = "SELECT Drinktype, Dcost FROM drink WHERE DrinkID = '"  .  $id  . "'";
 $this_drink_result = mysqli_query($con, $this_drink_query);
 $this_drink_record = mysqli_fetch_assoc($this_drink_result);
+
+/* Query for select another drink */
 
 $all_drinks_query = "SELECT DrinkID, Drinktype FROM drink";
 $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
 ?>
 
-
+<! --- Html Code --->
 <!DOCTYPE html>
 <html lang="en">
+<! --- CSS linked + Phone adaption --->
 <head>
     <title> Canteen </title>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 <body>
+<! --- Header --->
 <header>
     <h1> Wellington girls' <br> college canteen </h1>
+    <! --- Navigation bar --->
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -43,7 +52,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 </header>
 </body>
 <main>
-
+    <! --- Drink search bar --->
     <h2> Search a Drink</h2>
 
     <form action="" method="post">
@@ -52,19 +61,18 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
     </form>
 
     <?php
-
     if(isset($_POST['search'])) {
         $search = $_POST['search'];
-
+        /* Query for searching */
         $query1 = "SELECT * FROM drink WHERE Drinktype LIKE '%$search%'";
         $query = mysqli_query($con, $query1);
         $count = mysqli_num_rows($query);
-
+        /* If something searched isn't in drinks table/database no results show */
         if($count == 0){
             echo "There was no search results!";
 
         }else{
-
+            /* If an item is there than drinks information shows */
             while ($row = mysqli_fetch_array($query)) {
 
                 echo $row ['Drinktype'];
@@ -74,15 +82,18 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
     }
     ?>
 
+    <!--- Drinks information which shows from the index page --->
+
     <div class="row">
         <div class="column"> <h2> Drinks information </h2>
 
     <?php
-
+/* Displays the drink information */
         echo "<p> Drink Name: " . $this_drink_record['Drinktype'] . "<br>";
         echo "<p> Cost: " . $this_drink_record['Dcost'] . "<br>";
     ?> </div>
 
+        <!--- Allows the user to select another drink and found out the drink information --->
             <div class="column">  <h2> Select another drink </h2>
 
     <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
@@ -100,11 +111,10 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
         </select>
         <input type='submit' name='drinks_button' value='Show me the drink information'>
     </form> </div>
-
+        <! --- Drinks table --->
    <table border="1">
     <?php
     /* Drinks query */
-    /* SELECT Drinktype, Dcost FROM Drink */
 
     $featured_drinks_query = "SELECT Drinktype, Dcost FROM Drink";
     $featured_drinks_result = mysqli_query($con, $featured_drinks_query);
@@ -127,7 +137,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
    </table>
 </main>
 <footer>
-
+    <! --- Footer --->
     <h2> Wellington girls canteen </h2>
 
     <div class="footer" >
@@ -141,4 +151,6 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
             PO Box 12471, Wellington North 6144. <br>
             created by Gen ©2021 </div> </div> </footer>
 </html>
+
+
 
