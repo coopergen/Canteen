@@ -1,1 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    text-align: center;
+    color: #2B8C8C;
+}
+
+h2 {
+   font-family: 'Merriweather', serif;
+}
+
+p {
+    font-family: 'Libre Baskerville', serif;
+}
+
+ul {
+    background-color: #A3A8AB;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li, a {
+    color: #342B21;
+    display: block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px;
+    padding: 12px 26px;
+    text-align: center;
+    text-decoration: none;
+}
+
+table {
+    border-style: solid;
+    color: #342B21;
+}
+
+footer {
+    background-color: #559793;
+    display:block;
+    clear:both !important;
+    margin: 0px;
+    padding:10px;
+    border:1px solid #e7e2d7;
+    border-bottom-left-radius: .8em;
+    border-bottom-right-radius: .8em;
+    border-top-right-radius: .0em;
+    border-top-left-radius: .0em;
+    color: #342B21;
+}
+
 
