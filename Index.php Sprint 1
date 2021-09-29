@@ -1,4 +1,5 @@
 <?php
+/* Connection code to the server */
 $con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
@@ -7,16 +8,20 @@ else{
 }
 ?>
 
+<!-- Html Code -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- CSS linked + Phone adaption -->
 <head>
     <title> Canteen </title>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 <body>
+<!-- Header -->
 <header>
     <h1> Wellington girls' college canteen </h1>
+    <!-- Navigation bar -->
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -26,8 +31,8 @@ else{
         </ul>
     </nav>
 </header>
-</body>
 <main>
+    <!-- Explanation of what the canteen is -->
 <h2> About </h2>
     <p> Wellington girls college canteen is set in the
         heart of the school, we provide a wide range of
@@ -41,7 +46,7 @@ else{
         into our canteen each day. </p>
 </main>
 <footer>
-
+    <!-- Footer -->
     <h3> WGC CANTEEN </h3>
 
     <div class="footer" >
@@ -50,4 +55,5 @@ else{
         Wellington 6011, New Zealand. <br>
         PO Box 12471, Wellington North 6144. <br>
         created by Gen ©2021 </div> </footer>
+</body>
 </html>
