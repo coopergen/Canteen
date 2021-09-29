@@ -9,21 +9,21 @@ else{
 
 ?>
 
-<! --- Html Code --->
+<!-- Html Code -->
 <!DOCTYPE html>
 <html lang="en">
-<! --- CSS linked + Phone adaption --->
+<!-- CSS linked + Phone adaption -->
 <head>
     <title> Canteen </title>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 <body>
-<! --- Header --->
+<!-- Header -->
 <header>
     <h1> Wellington girls' college canteen </h1>
 </header>
-<! --- Navigation bar --->
+<!-- Navigation bar -->
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -33,7 +33,7 @@ else{
         </ul>
     </nav>
 <main>
-    <! --- Drinks table --->
+    <!-- Drinks table -->
    <table>
     <?php
     /* Drinks query */
@@ -59,7 +59,7 @@ else{
    </table>
 </main>
 <footer>
-    <! --- Footer --->
+    <!-- Footer -->
     <h3> WGC CANTEEN </h3>
 
     <div class="footer" >
