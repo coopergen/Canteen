@@ -27,20 +27,20 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
 ?>
 
-<! --- Html Code --->
+<!-- Html Code -->
 <!DOCTYPE html>
 <html lang="en">
-<! --- CSS linked + Phone adaption --->
+<!-- CSS linked + Phone adaption -->
 <head>
     <title> Canteen </title>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 <body>
-<! --- Header --->
+<!-- Header -->
 <header>
     <h1> Wellington girls' <br> college canteen </h1>
-    <! --- Navigation bar --->
+    <!-- Navigation bar -->
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -50,12 +50,11 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
         </ul>
     </nav>
 </header>
-</body>
 <main>
-    <! --- Drink search bar --->
+    <!-- Drink search bar -->
     <h2> Search a Drink</h2>
 
-    <form action="" method="post">
+    <form action="#" method="post">
         <input type="text" name='search'>
         <input type="submit" name="submit" value="Search">
     </form>
@@ -82,7 +81,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
     }
     ?>
 
-    <!--- Drinks information which shows from the index page --->
+    <!-- Drinks information which shows from the index page -->
 
     <div class="row">
         <div class="column"> <h2> Drinks information </h2>
@@ -93,7 +92,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
         echo "<p> Cost: " . $this_drink_record['Dcost'] . "<br>";
     ?> </div>
 
-        <!--- Allows the user to select another drink and found out the drink information --->
+        <!-- Allows the user to select another drink and found out the drink information -->
             <div class="column">  <h2> Select another drink </h2>
 
     <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
@@ -110,8 +109,8 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
         </select>
         <input type='submit' name='drinks_button' value='Show me the drink information'>
-    </form> </div>
-        <! --- Drinks table --->
+    </form> </div> </div>
+        <!-- Drinks table -->
    <table border="1">
     <?php
     /* Drinks query */
@@ -137,20 +136,21 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
    </table>
 </main>
 <footer>
-    <! --- Footer --->
+    <!-- Footer -->
     <h2> Wellington girls canteen </h2>
 
     <div class="footer" >
+        <ul>
         <li> <a href='index.php'> Home </a></li>
         <li> <a href='food.php'> Food Menu </a></li>
         <li> <a href='drinks.php'> Drinks Menu </a></li>
-        <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
+        <li> <a href='specials.php'> Specials </a></li>
+        </ul> <br> <br> <br>
         <div class="contact"> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
             Address: 18 Pipitea Street, Thorndon, <br>
             Wellington 6011, New Zealand. <br>
             PO Box 12471, Wellington North 6144. <br>
             created by Gen ©2021 </div> </div> </footer>
+</body>
 </html>
-
-
 
