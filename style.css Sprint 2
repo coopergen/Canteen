@@ -90,7 +90,6 @@ th, td {
 tr:hover {background-color: darkgray;}
 
 th {
-    background-colour: #559793;
     color: #342B21;
     font-family: 'Libre Baskerville', serif;
 }
@@ -113,4 +112,3 @@ footer {
     font-size: 18px;
     font-family: 'Libre Baskerville', serif;
 }
-
