@@ -12,9 +12,6 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
 $all_food_query = "SELECT FoodID, Foodtype FROM food ";
 $all_food_result = mysqli_query($con, $all_food_query);
 
-$all_specials_query = "SELECT SpecialsID, Day, FROM specials";
-$all_specials_result = mysqli_query($con, $all_specials_query);
-
 ?>
 
 <!DOCTYPE html>
