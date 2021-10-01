@@ -27,7 +27,6 @@ else{
         </ul>
     </nav>
 </header>
-</body>
 <main>
 
     <table border="1">
@@ -64,13 +63,16 @@ else{
     <h2> Wellington girls canteen </h2>
 
     <div class="footer" >
+        <ul>
         <li> <a href='index.php'> Home </a></li>
         <li> <a href='food.php'> Food Menu </a></li>
         <li> <a href='drinks.php'> Drinks Menu </a></li>
-        <li> <a href='specials.php'> Specials </a></li> <br> <br> <br>
+        <li> <a href='specials.php'> Specials </a></li>
+        </ul> <br> <br> <br>
         <div class="contact"> <br> Contact information: <br> Email: canteen@wgc.school.nz <br>
             Address: 18 Pipitea Street, Thorndon, <br>
             Wellington 6011, New Zealand. <br>
             PO Box 12471, Wellington North 6144. <br>
             created by Gen ©2021 </div> </div> </footer>
+</body>
 </html>
