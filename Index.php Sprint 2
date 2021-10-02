@@ -1,4 +1,5 @@
 <?php
+/* Connection code to the server */
 $con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
@@ -6,24 +7,30 @@ else{
     echo "connected to database";
 }
 
+/* Drink information for user  */
 $all_drinks_query = "SELECT DrinkID, Drinktype FROM drink";
 $all_drinks_result = mysqli_query($con, $all_drinks_query);
 
+/* Food information for user */
 $all_food_query = "SELECT FoodID, Foodtype FROM food ";
 $all_food_result = mysqli_query($con, $all_food_query);
 
 ?>
 
+<!-- Html Code -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- CSS linked + Phone adaption -->
 <head>
     <title> Canteen </title>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 <body>
+<!-- Header -->
 <header>
     <h1> Wellington girls' <br> college canteen </h1>
+    <!-- Navigation bar -->
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -34,6 +41,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
     </nav>
 </header>
 <main>
+    <!-- Drinks information -->
     <div class="row">
         <div class="column"> <form name='drinks_form' id='drinks_form' method = 'get' action ='Drinks.php'>
         <select id ='drink' name ='drink'>
@@ -50,6 +58,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
         </select>
         <input type='submit' name='drinks_button' value='Show me the drink information'>
             </form> </div>
+        <!-- Food information -->
         <div class="column">
     <form  name='food_form' id='food_form' method = 'get' action ='Food.php'>
         <select id='food' name='food'>
@@ -67,6 +76,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
         <input type='submit' name='food_button' value='Show me the food information'>
     </form> </div>
 
+        <!-- WGC canteen blurb -->
     <div class="relative"> <div class="textbox"> <h2> About </h2> </div> </div>
     <div class="textbox2"> <p> Wellington girls college canteen is set in the
             heart of the school, we provide a wide range of
@@ -80,7 +90,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
             into our canteen each day. <p></p> </div> </div>
 </main>
 <footer>
-
+    <!-- Footer -->
     <h2> Wellington girls canteen </h2>
 
     <div class="footer" >
