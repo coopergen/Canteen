@@ -35,7 +35,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
 <header>
     <div class="row">
         <!-- Header image and title -->
-        <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  width="450"/> </div>
+        <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  alt="WGC LOGO" width="450"/> </div>
         <div class="columnh righth"> <h1> Wellington girls' college canteen </h1> </div> </div>
     <!-- Navigation bar -->
     <nav>
@@ -113,7 +113,7 @@ $all_specials_result = mysqli_query($con, $all_specials_query);
                 created by Gen ©2021
             </div>
 
-            <div class="columnf middle"> <img src='WGC footer LOGO.png'  width="110"/> </div>
+            <div class="columnf middle"> <img src='WGCfooterLOGO.png' alt="WGC Logo"  width="110"/> </div>
 
             <div class="columnf right">
                 <div class="contact"> <br> <strong> Contact information: </strong> <strong> Email: </strong> wgc.school.nz
