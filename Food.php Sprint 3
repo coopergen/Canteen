@@ -1,4 +1,5 @@
  <?php
+/* Connection code to the server */
 $con = mysqli_connect("localhost", "cooperge", "shinygoose82", "cooperge_canteen");
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
@@ -6,33 +7,43 @@ else{
     echo "connected to database";
 }
 
+/* Select another food item */
 if(isset($_GET['food'])){
     $id = $_GET['food'];
 }else{
     $id = 1;
 }
 
+/* Query for food information */
+
 $this_food_query = "SELECT Foodtype, Fcost FROM food WHERE FoodID = '"  .  $id  . "'";
 $this_food_result = mysqli_query($con, $this_food_query);
 $this_food_record = mysqli_fetch_assoc($this_food_result);
+
+/* Query for select another food item */
 
 $all_food_query = "SELECT FoodID, Foodtype FROM food ";
 $all_food_result = mysqli_query($con, $all_food_query);
 
 ?>
 
+<!-- Html Code -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- CSS linked + Phone adaption -->
 <head>
     <title> Canteen </title>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 <body>
+<!-- Header -->
 <header>
     <div class="row">
+        <!-- Header image and title -->
         <div class="columnh lefth"> <img src='Wellingtongirlscollegelogo.png'  width="450"/> </div>
         <div class="columnh righth"> <h1> Wellington girls' college canteen </h1> </div> </div>
+    <!-- Navigation bar -->
     <nav>
         <ul>
             <li> <a href='index.php'> Home </a></li>
@@ -42,8 +53,8 @@ $all_food_result = mysqli_query($con, $all_food_query);
         </ul>
     </nav>
 </header>
-</body>
 <main>
+    <!-- Food information which shows from the index page -->
     <div class="row">
         <div class="column"> <p> Food information </p>
 
@@ -52,6 +63,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
             echo "<p> Food Name: " . $this_food_record['Foodtype'] . "<br>";
             echo "<p> Cost: " . $this_food_record['Fcost'] . "<br>";
             ?>  </div>
+        <!-- Allows the user to select another food item and found out the food information -->
         <div class="column"> <p> Select another food </p>
 
             <form name='food_form' id='food_form' method = 'get' action ='Food.php'>
@@ -70,13 +82,13 @@ $all_food_result = mysqli_query($con, $all_food_query);
                 <input type='submit' name='food_button' value='Show me the food information'>
             </form> </div>
     </div>
-
+    <!-- Food menu header -->
     <table>
         <tr>
             <th><br><h2>Food Menu</h2><br></th>
         </tr>
     </table> <br>
-
+    <!-- User sorts menu how they like it -->
     <div class="row">
         <div class="column">
             <form action="" method="GET">
@@ -93,10 +105,10 @@ $all_food_result = mysqli_query($con, $all_food_query);
                 </div>
         </div>
         </form>
-
+        <!-- Drink search bar -->
         <div class="column">
 
-            <form action="" method="post">
+            <form action="#" method="post">
                 <input type="text" name='search'>
                 <input type="submit" name="submit" value="Search">
             </form>
@@ -105,16 +117,16 @@ $all_food_result = mysqli_query($con, $all_food_query);
 
             if(isset($_POST['search'])) {
                 $search = $_POST['search'];
-
+                /* Query for searching */
                 $query1 = "SELECT * FROM food WHERE Foodtype LIKE '%$search%'";
                 $query = mysqli_query($con, $query1);
                 $count = mysqli_num_rows($query);
-
+                /* If something searched isn't in food table/database no results show */
                 if($count == 0){
                     echo "There was no search results!";
 
                 }else{
-
+                    /* If an item is there than food information shows */
                     while ($row = mysqli_fetch_array($query)) {
 
                         echo $row ['Foodtype'];
@@ -124,6 +136,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
             }
             ?> </div> </div> <br>
 
+    <!-- food menu -->
     <table class="table" border="1">
         <thred>
             <tr>
@@ -133,6 +146,7 @@ $all_food_result = mysqli_query($con, $all_food_query);
         </thred>
         <tbody>
         <?php
+        /* what happens when the user selects how they want the menu filter */
         $sort_option = "";
         if(isset($_GET['sort'])) {
             if ($_GET['sort'] == "Featured") {
@@ -143,9 +157,10 @@ $all_food_result = mysqli_query($con, $all_food_query);
                 $sort_option = "DESC";
             }
         }
+        /* Sorting query */
         $sort_query = "SELECT * FROM food ORDER BY fcost $sort_option";
         $sort_query_run = mysqli_query($con, $sort_query);
-
+        /* Table displayed */
         if(mysqli_num_rows($sort_query_run) > 0)
         {
             foreach($sort_query_run as $row)
@@ -172,25 +187,29 @@ $all_food_result = mysqli_query($con, $all_food_query);
     <br>
 
 </main>
+<!-- Footer -->
 <footer>
 
     <h2> Wellington girls college canteen </h2>
-
+    <!-- Footer Navigation bar -->
     <div class="footer" > <div class="row">
             <div class="columnf left">
+                <ul>
                 <li> <a href='index.php'> Home </a></li>
                 <li> <a href='food.php'> Food Menu </a></li>
                 <li> <a href='drinks.php'> Drinks Menu </a></li>
-                <li> <a href='specials.php'> Specials </a></li> <br> <br> <br> <br> <br> <br>
+                <li> <a href='specials.php'> Specials </a></li>
+                </ul> <br> <br> <br> <br> <br> <br>
                 <br> <br> <br>
                 created by Gen ©2021
             </div>
-
+            <!-- WGC logo -->
             <div class="columnf middle"> <img src='WGC footer LOGO.png'  width="110"/> </div>
-
+            <!-- Contact information -->
             <div class="columnf right">
                 <div class="contact"> <br> <strong> Contact information: </strong> <strong> Email: </strong> wgc.school.nz
                     <strong> Address: </strong> 18 Pipitea Street, Thorndon,
                     Wellington 6011, New Zealand.
                     PO Box 12471, Wellington North 6144. </div> </div> </div> </div> </footer>
+</body>
 </html>
