@@ -91,7 +91,7 @@ $all_drinks_result = mysqli_query($con, $all_drinks_query);
     <!-- User sorts menu how they like it -->
     <div class="row">
         <div class="column">
-    <form action="" method="GET">
+    <form action="#" method="GET">
         <div class="sort_row">
                     <select name="sort" class="form-control">
                         <option value="">--Select Option--</option>
